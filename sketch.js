@@ -2,6 +2,8 @@
 let img1;
 let img2; 
 let img3;
+let flake;
+let flakes = [];
 
 function preload(){
     img1 = loadImage('images/skiing1.png');
@@ -22,14 +24,21 @@ function draw(){
         image(img3, mouseX + 250*i, 35, img3.width/5, img3.height/5);
         image(img3, mouseX - 250*i, 35, img3.width/5, img3.height/5);
     }
-    //image(img3, mouseX, 35, img3.width/5, img3.height/5);
 
     if(mouseIsPressed){
-        image(img2, mouseX, mouseY, img2.width/15, img2.height/15);
+        flake = image(img2, mouseX, mouseY, img2.width/15, img2.height/15);
+        flakes.push(flake);
     }
 
+    /*
+    for(var i=0; i<flakes.length; i++){
+        flakes[i].display();
+    }
+    */
+
+
     if(mouseX <= 360){
-        fill(213, 232, 242);
+        fill(213, 132, 142);
     }
     else{
         fill(191, 210, 220);
@@ -37,7 +46,7 @@ function draw(){
     noStroke();
     triangle(200, 800, 540, 800, 360, 320);
     if(mouseX <= 650){
-        fill(215, 231, 239);
+        fill(215, 231, 0);
     }
     else{
         fill(235, 251, 259);
@@ -46,7 +55,7 @@ function draw(){
     noStroke();
     triangle(490, 800, 800, 800, 650, 390);
     if(mouseX <= 470){
-        fill(192, 208, 216);
+        fill(0, 208, 216);
     }
     else{
         fill(212, 228, 236);
@@ -55,7 +64,7 @@ function draw(){
     noStroke();
     triangle(310, 800, 630, 800, 470, 490);
     if(mouseX <= 150){
-        fill(217, 229, 235);
+        fill(217, 0, 235);
     }
     else{
         fill(257, 269, 275);
@@ -68,3 +77,11 @@ function draw(){
     rotate(radians(20));
     image(img1, 420, 500, img1.width/5, img1.height/5);
 }
+
+/*
+class disp{
+    display(){
+        image(img2, this.x, this.y, this.width, this.height);
+      }
+}
+*/
